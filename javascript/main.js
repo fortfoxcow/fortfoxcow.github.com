@@ -8,9 +8,11 @@ $(document).ready(function () {
   // Yes, I wrote a DSL for this.
   start({'at': [100, xs[0]], 'then': function () {
     walk({'to': xs[1], 'then': function () {
-      sit({'for': 500, 'then': function() {
-        say({'text': "Happy Birthday, Dad! Enjoy the video!", 'then': function() {
-          walk({'to': xs[2]});
+      sit({'for': 500, 'then': function () {
+        say({'text': "Happy Birthday, Dad! Enjoy the video!", 'then': function () {
+          walk({'to': xs[2], 'then': function () {
+            $('#birthday-video').fadeIn();
+          }});
         }});
       }});
     }});
