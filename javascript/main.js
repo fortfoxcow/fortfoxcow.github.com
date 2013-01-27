@@ -8,8 +8,10 @@ $(document).ready(function () {
   // Yes, I wrote a DSL for this.
   start({'at': [100, xs[0]], 'then': function () {
     walk({'to': xs[1], 'then': function () {
-      sit({'for': 3000, 'then': function() {
-        walk({'to': xs[2]});
+      sit({'for': 500, 'then': function() {
+        say({'text': "Happy Birthday, Dad! Enjoy the video!", 'then': function() {
+          walk({'to': xs[2]});
+        }});
       }});
     }});
   }});
@@ -36,5 +38,19 @@ $(document).ready(function () {
     setTimeout(function () {
       o.then();
     }, o['for']);
+  }
+
+  function say (o) {
+    var i = 0, timer;
+    timer = setInterval(function () {
+      $('#speech-bubble').text(o.text.substr(0, i++));
+      if (i > o.text.length) {
+        clearInterval(timer);
+        setTimeout(function () {
+          $('#speech-bubble').text('');
+          if (o.then) o.then();
+        }, 1000);
+      }
+    }, 150);
   }
 });

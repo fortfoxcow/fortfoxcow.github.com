@@ -15,3 +15,10 @@ body {
 #dog {
   width: 281px;
 }
+
+#speech-bubble {
+  width: 400px;
+  margin: 2em auto;
+  font-size: 2em;
+  font-family: 'Courier New';
+}
