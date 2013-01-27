@@ -36,7 +36,7 @@ $(document).ready(function () {
   function sit (o) {
     $('#dog').attr('src', frames[2]);
     setTimeout(function () {
-      o.then();
+      if (o.then) o.then();
     }, o['for']);
   }
 
