@@ -11,7 +11,7 @@ $(document).ready(function () {
       sit({'for': 500, 'then': function () {
         say({'text': "Happy Birthday, Dad! Enjoy the video!", 'then': function () {
           walk({'to': xs[2], 'then': function () {
-            $('#birthday-video').fadeIn();
+            $('#birthday-video').slideDown();
           }});
         }});
       }});
